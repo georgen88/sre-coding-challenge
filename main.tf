@@ -12,8 +12,8 @@ terraform {
 
 locals {
   tags = {
-    Name = var.usage
-    Automation  = "Terraform"
-    Owner  = "Jorge Nava"
-         }
+    Name       = var.usage
+    Automation = "Terraform"
+    Owner      = "Jorge Nava"
   }
+}

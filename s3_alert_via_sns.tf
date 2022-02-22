@@ -29,17 +29,17 @@ resource "aws_sns_topic_subscription" "email-target" {
 }
 
 resource "aws_s3_bucket" "bucket" {
-  bucket = "bucket-challenge-${var.usage}"
-#   acl    = "private"
-#   tags = local.tags
+  bucket = "bucket-challenge-s-${var.usage}"
+  #   acl    = "private"
+  #   tags = local.tags
 }
 
 resource "aws_s3_bucket_notification" "bucket_notification" {
   depends_on = [aws_sns_topic.sns_alert_topic, aws_s3_bucket.bucket]
   bucket     = aws_s3_bucket.bucket.id
   topic {
-    topic_arn     = aws_sns_topic.sns_alert_topic.arn
-    events        = ["s3:ObjectCreated:*"]
+    topic_arn = aws_sns_topic.sns_alert_topic.arn
+    events    = ["s3:ObjectCreated:*"]
     # filter_suffix = "*.*"
   }
 }
