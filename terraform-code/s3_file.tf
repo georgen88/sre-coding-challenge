@@ -1,5 +1,5 @@
 resource "aws_s3_object" "object" {
-  depends_on = [ aws_s3_bucket.bucket,aws_sns_topic.sns_alert_topic, aws_s3_bucket.bucket,aws_s3_bucket_notification.bucket_notification]
+  depends_on = [aws_s3_bucket.bucket, aws_sns_topic.sns_alert_topic, aws_s3_bucket.bucket, aws_s3_bucket_notification.bucket_notification]
 
   bucket = aws_s3_bucket.bucket.id
   key    = "file.txt"

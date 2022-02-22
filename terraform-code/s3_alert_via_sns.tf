@@ -29,7 +29,7 @@ resource "aws_sns_topic_subscription" "email-target" {
 }
 
 resource "aws_s3_bucket" "bucket" {
-  bucket = "bucket-challenge-s-${var.usage}"
+  bucket = "bucket-challenge-${var.usage}"
   #   acl    = "private"
   #   tags = local.tags
 }

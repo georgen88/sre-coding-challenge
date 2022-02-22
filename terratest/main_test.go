@@ -6,7 +6,6 @@ import (
 	"time"
 
 	http_helper "github.com/gruntwork-io/terratest/modules/http-helper"
-
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
@@ -15,7 +14,7 @@ func TestTerraformAwsHelloWorldExample(t *testing.T) {
 
 	// retryable errors in terraform testing.
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
-		TerraformDir: "../01-ec2-web-server",
+		TerraformDir: "../terraform-code",
 	})
 
 	defer terraform.Destroy(t, terraformOptions)
@@ -24,6 +23,6 @@ func TestTerraformAwsHelloWorldExample(t *testing.T) {
 
 	publicIp := terraform.Output(t, terraformOptions, "public_ip")
 
-	url := fmt.Sprintf("http://%s:8080", publicIp)
-	http_helper.HttpGetWithRetry(t, url, nil, 200, "Hello, World!", 30, 5*time.Second)
+	url := fmt.Sprintf("http://%s:80", publicIp)
+	http_helper.HttpGetWithRetry(t, url, nil, 200, "Webserver for challenge", 30, 5*time.Second)
 }
