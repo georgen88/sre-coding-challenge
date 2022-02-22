@@ -44,23 +44,23 @@ resource "aws_instance" "instance" {
                                     systemctl enable httpd
                                     echo " Webserver for challenge" > /var/www/html/index.html
                                 EOF
-  tags = local.tags
+  tags                        = local.tags
 }
 
 resource "aws_security_group" "sg" {
   vpc_id = aws_vpc.vpc.id
   ingress {
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
-    cidr_blocks      = [var.cidr-open]
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = [var.cidr-open]
   }
 
   egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = -1
-    cidr_blocks      = [var.cidr-open]
+    from_port   = 0
+    to_port     = 0
+    protocol    = -1
+    cidr_blocks = [var.cidr-open]
   }
 }
 
