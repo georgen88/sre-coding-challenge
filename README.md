@@ -87,36 +87,26 @@ aws_s3_bucket.bucket: Still creating... [20s elapsed]
 ```
 ## 5 Architecture of project
 ![alt text](./images/sre-challenge-diagram.drawio.png "architecture")
-## 6  Kubernetes (via helm / via manifest)
-```
-        curl -L https://git.io/get_helm.sh | bash -s -- --version v3.0.0
-        helm repo add bitnami https://charts.bitnami.com/bitnami
-        helm install my-release bitnami/wordpress 
-```
+## 6  Kubernetes (via helm / via manifest) from scratch
 
- * Cluster creation via eksctl.
+ This Helm chart will create all resources needed for a worpress (secrets,deployments,services...)\
+Cluster creation 
+![alt text](./images/2helmchart0.PNG "") 
+Enter to helmchart folder \
+![alt text](./images/2helmchart1.PNG "")
+cd helm-chart-files \
+helm install jorge-nava-helmchart jorge-nava-wordpress-helmchart 
 
-![alt text](./images/kubernets-workpress-install-helm.png "")
-
- * Helm chart configuration  and Install.
-
-![alt text](./images/kubernets-workpress-install-helm1.png "")
-
- * Kubernetes service.
-
-![alt text](./images/kubernets-workpress-install-helm2.png "")
-
- * Kubernetes objects.
-
-![alt text](./images/kubernets-workpress-install-helm2.5.png "")
-
- * Access to Wordpress via Load balancer.
-
-![alt text](./images/kubernets-workpress-install-helm3.png "")
- * Access to Wordpress admin console
- * user -> user
- * get password from secret   -> kubectl get secrets/my-release-wordpress -o jsonpath="{.data.wordpress-password}" | base64 --decode;echo
-![alt text](./images/kubernets-workpress-install-helm4.png "")
+![alt text](./images/2helmchart2.PNG "")
+List resources created by helm-chart \
+kubectl get all
+![alt text](./images/2helmchart3.png "")
+Get url from loadbalancer via jsonpath \
+url="http://$(kubectl get service/wordpress -o=jsonpath='{.status.loadBalancer.ingress[0].hostname}')/wp-admin/install.php" \
+echo $url 
+![alt text](./images/2helmchart4.png "")
+Test wordpress install via loadbalancer
+![alt text](./images/2helmchart5.png "")
 
 # Code Documentation Below
 
