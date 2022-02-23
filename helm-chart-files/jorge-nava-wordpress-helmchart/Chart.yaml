@@ -1,0 +1,6 @@
+apiVersion: v2
+name: jorge-nava-wordpress-helmchart
+description: A Helm chart for Kubernetes challenge
+type: application
+version: 0.1.0
+appVersion: "1.1"
