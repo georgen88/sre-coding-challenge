@@ -45,11 +45,11 @@ go test -v
 ## 4 Create trough terraform
 * * vpc, igw,route table, subnet,security group \
 
-    terraform file incharged  - terraform-code/ec2_webserver.tf
-* * ec2 runnign webserver \
-
     terraform file incharged  - terraform-code/networking_config.tf
 
+* * ec2 runnign webserver \
+
+    terraform file incharged  - terraform-code/ec2_webserver.tf 
     
 # How to run code for Questions (1,2,4,5)
 ```
