@@ -90,15 +90,20 @@ aws_s3_bucket.bucket: Still creating... [20s elapsed]
 ## 6  Kubernetes (via helm / via manifest) from scratch
 
  This Helm chart will create all resources needed for a worpress (secrets,deployments,services...)\
-Cluster creation 
+
+Helm files location (remeber to check the branch Jorge-Nava-Challenge )
+ ![alt text](./images/2helmchart-package0.png "") 
+
+* Cluster creation 
 ![alt text](./images/2helmchart0.PNG "") 
-Enter to helmchart folder \
+* Enter to helmchart folder \
 cd helm-chart-files \
 ![alt text](./images/2helmchart-package2.PNG "")
+
 helm install challenge jorge-nava-wordpress-helmchart-0.1.0.tgz  --set password=my-secret-value  
 
 ![alt text](./images/2helmchart-package2.1.PNG "")
-List resources created by helm-chart \
+* List resources created by helm-chart \
 kubectl get all
 ![alt text](./images/2helmchart3.png "")
 Get url from loadbalancer via jsonpath \
