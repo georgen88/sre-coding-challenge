@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  jorge-nava-wordpress-helmchart:
+  - apiVersion: v2
+    appVersion: "1.1"
+    created: "2022-03-03T21:01:54.845207011Z"
+    description: A Helm chart for Kubernetes challenge
+    digest: c38685f50448f386e5b1d70466b7ff58ef94091021f293b2e6a662cc9fa0c48b
+    name: jorge-nava-wordpress-helmchart
+    type: application
+    urls:
+    - https://github.com/georgen88/sre-coding-challenge/tree/Jorge-Nava-Challenge/helm-chart-files/jorge-nava-wordpress-helmchart-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-03-03T21:01:54.844948079Z"
