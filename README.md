@@ -93,11 +93,11 @@ aws_s3_bucket.bucket: Still creating... [20s elapsed]
 Cluster creation 
 ![alt text](./images/2helmchart0.PNG "") 
 Enter to helmchart folder \
-![alt text](./images/2helmchart1.PNG "")
 cd helm-chart-files \
-helm install jorge-nava-helmchart jorge-nava-wordpress-helmchart 
+![alt text](./images/2helmchart-package2.PNG "")
+helm install challenge jorge-nava-wordpress-helmchart-0.1.0.tgz  --set password=my-secret-value  
 
-![alt text](./images/2helmchart2.PNG "")
+![alt text](./images/2helmchart-package2.1.PNG "")
 List resources created by helm-chart \
 kubectl get all
 ![alt text](./images/2helmchart3.png "")
